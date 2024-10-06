@@ -1,5 +1,6 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const secretKey = 'clave_secreta_357'; 
+const secretKey = process.env.JWT_SECRET; // Ahora usando la variable de entorno
 
 const verifyToken = (roles) => {
     return (req, res, next) => {
@@ -21,4 +22,3 @@ const verifyToken = (roles) => {
 };
 
 module.exports = { verifyToken };
-
